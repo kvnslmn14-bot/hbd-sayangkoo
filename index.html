@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sayang!</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background-color: #ffe4e1;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 80%;
+        }
+        h1 { color: #ff4d6d; }
+        button {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover { transform: scale(1.1); background: #ff758f; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="mainCard">
+    <div id="content">
+        <h1 id="title">Halo Sayang! ❤️</h1>
+        <p id="message">Ada pesan buat kamu hari ini...</p>
+        <button onclick="nextStep()">Klik di sini ya!</button>
+    </div>
+</div>
+
+<script>
+    let step = 0;
+    const titles = ["Hari ini hari apa?", "Coba tebak...", "Happy Birthday!! 🎂"];
+    const messages = [
+        "Coba ingat-ingat, hari ini tanggal berapa?",
+        "Iya, hari spesial buat orang yang paling spesial di hidupku.",
+        "Semoga panjang umur, sehat selalu, dan tetap jadi alasan aku tersenyum setiap hari. I love you! ❤️"
+    ];
+
+    function nextStep() {
+        step++;
+        if (step < titles.length) {
+            document.getElementById('title').innerText = titles[step];
+            document.getElementById('message').innerText = messages[step];
+        } else {
+            Swal.fire({
+                title: 'Kado Buat Kamu!',
+                text: 'Cek WhatsApp ya, ada kejutan lainnya! 🎁',
+                imageUrl: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZzR6bm9oZzR6bm9oZzR6bm9oZzR6bm9oZzR6bm9oZzR6bm8mZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PWc/106LIIU9q9R_h6/giphy.gif',
+                imageWidth: 200,
+                confirmButtonText: 'I Love You Too!'
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
